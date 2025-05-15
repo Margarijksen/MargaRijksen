@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marga Rijksen</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 150vh;
+            background-image: url('piano.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-color: #211812;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Header standaard */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #bc9b82;
+            padding: 0 20px;
+            height: 80px;
+            width: 100%;
+            border-radius: 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        /* Header verborgen als scroll niet bovenaan */
+        header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .bible {
+            display: none; /* standaard verbergen */
+        }
+
+        @media (min-width: 768px) {
+            .bible {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                background: #211812;
+                padding: 20px;
+                margin-top: 150px;
+                border-radius: 5px;
+                width: 40%;
+                max-width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                height: auto;
+                min-height: 20px;
+				text-align: center;
+            }
+        }
+
+        .extra-text {
+            padding: 10px;
+            text-align: center;
+            width: 90%;
+            margin: 20px auto;
+            background: #211812;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .extra-text {
+                width: 95%;
+                margin: 20px auto;
+				margin-top: 80px;
+                padding: 10px;
+            }
+
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li {
+                width: 100%;
+                padding: 3px 0;
+                margin: 0;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 100%;
+                padding: 3px 0;
+                background: #bc9b82;
+            }
+
+            .dropdown-menu {
+                position: relative;
+                width: 100%;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            margin: 0 20px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            color: white;
+            font-family: sans-serif;
+        }
+
+        p {
+            text-decoration: none;
+            color: white;
+            font-family: sans-serif;
+            margin: 0 20px;
+        }
+
+        p1 {
+            text-decoration: none;
+            color: white;
+            font-family: sans-serif;
+			font-style: italic;
+            margin: 0 20px;
+        }
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 1px);
+            left: 0;
+            background: #211812;
+            padding: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .dropdown-menu li {
+            text-align: left;
+        }
+
+        .dropdown-menu li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: rgba(188, 155, 130, 0.8);
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown-menu:hover {
+            display: block;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            width: 80%;
+            height: 80%;
+            border: 0;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #bc9b82;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            margin-top: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Bijbeltekst -->
+        <header>
+            <div class="logo">
+                <img src="LOGO.jpg" alt="Logo" />
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Muziek ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Pianist.html">Pianist</a></li>
+                            <li><a href="ORGANIST.html">Organist</a></li>
+                            <li><a href="Dirigent.html">Dirigent</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Muzieklessen.html">Muzieklessen</a></li>
+                    <li><a href="CONTACT.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="bible">
+            <div class="banner">
+                <p>
+                    Loof de HEERE! Halleluja!<br />
+                    Loof God in Zijn heiligdom,<br />
+                    loof Hem in Zijn machtig hemelgewelf.<br />
+                    Loof Hem om Zijn machtige daden,<br />
+                    loof Hem om Zijn geweldige grootheid.<br />
+                    Loof Hem met geschal van de bazuin,<br />
+                    loof Hem met luit en harp.<br />
+                    Loof Hem met tamboerijn en reidans,<br />
+                    loof Hem met snarenspel en fluit.<br />
+                    Loof Hem met helder klinkende cimbalen,<br />
+                    loof Hem met luid klinkende cimbalen.<br />
+                    Laat alles wat adem heeft de HEERE loven.<br />
+                    Halleluja!
+                </p>
+            </div>
+        </div>
+    </div>
+
+<div class="extra-text">
+			</br><h1>Organist</h1></br>
+			<p> Sinds 2023 is Marga als vaste organist verbonden aan de Hervormde Kerk van Nederlangbroek en Hervormd Werkhoven. 
+			Met veel plezier begeleidt ze de samenzang van zowel psalmen als liederen. Haar doel is om gemeenteleden mee te nemen in de betekenis van de teksten. 
+			Zelf zegt ze hierover:</p>			
+			<p1>"Het motiveert mij om de harten van mensen te raken met de woorden van een lied. De keuzes in registratie, evenals de tussen- en voorspelen, spelen daarbij een essentiële rol."</p1></br></br></br>
+			<p>Naast haar werk als kerkorganist is Marga ook actief als begeleider bij koorconcerten. 
+			Samen met andere muzikanten ondersteunt ze koren en draagt ze bij aan de samenzang. 
+			Vanwege haar energieke en warme speelstijl wordt ze regelmatig gevraagd om trouwdiensten muzikaal te begeleiden.
+			Daarnaast geniet Marga ervan om christelijke muziek in een nieuw jasje te steken. Ze improviseerde al op verschillende liederen en blijft steeds zoeken naar frisse en inspirerende manieren om muziek tot leven te brengen.</p> </br></br></br></br>
+		
+		<div class="video-container">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/Mw5GJ08FYPc" 
+			title="YouTube video player" frameborder="0" 
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+			referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+		</div>
+
+    <footer>
+        <p>&copy; 2025 Marga Rijksen</p>
+    </footer>
+
+    <script>
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY === 0) {
+                header.classList.remove('hidden'); // Bovenaan, header tonen
+            } else {
+                header.classList.add('hidden'); // Naar beneden scrollen, header verbergen
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
