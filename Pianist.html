@@ -85,7 +85,7 @@
                 margin-right: auto;
                 height: auto;
                 min-height: 20px;
-				text-align: center;
+                text-align: center;
             }
         }
 
@@ -102,7 +102,7 @@
             .extra-text {
                 width: 95%;
                 margin: 20px auto;
-				margin-top: 80px;
+                margin-top: 80px;
                 padding: 10px;
             }
 
@@ -117,27 +117,33 @@
             }
 
             nav ul {
-                flex-direction: column;
-                width: 100%;
+                flex-direction: row; /* horizontaal houden */
+                justify-content: center;
+                width: auto;
                 text-align: center;
+                gap: 10px;
+                padding: 0;
+                margin: 0;
             }
 
             nav ul li {
-                width: 100%;
-                padding: 3px 0;
+                display: inline-block;
+                padding: 0;
                 margin: 0;
             }
 
             nav ul li a {
-                display: block;
-                width: 100%;
-                padding: 3px 0;
-                background: #bc9b82;
+                display: inline-block;
+                padding: 5px 8px;
+                margin: 0;
+                font-size: 0.85rem;
+                background: transparent;
+                color: white;
             }
 
             .dropdown-menu {
                 position: relative;
-                width: 100%;
+                width: auto;
             }
         }
 
@@ -155,7 +161,7 @@
             color: white;
             font-family: sans-serif;
             font-weight: bold;
-            margin: 0 20px;
+            margin: 0 7px;
             text-transform: uppercase;
         }
 
@@ -293,7 +299,7 @@
         </div>
     </div>
 
-       <div class="extra-text">
+        <div class="extra-text">
 			</br><h1>Pianist</h1></br>
 			<p>
 			Marga speelt al jaren met veel plezier piano en begeleidt koren tijdens concerten. 
@@ -309,7 +315,6 @@
 			referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 		</div>
 		</div>
-
 
     <footer>
         <p>&copy; 2025 Marga Rijksen</p>
@@ -330,7 +335,3 @@
 
 </html>
 
-
-
-
- 
