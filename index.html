@@ -23,6 +23,8 @@
             background-repeat: no-repeat;
             background-position: center top;
             background-color: #211812;
+            overflow-x: hidden; /* voorkom horizontaal scrollen */
+            padding: 0 10px; /* padding zijkanten mobiel */
         }
 
         .wrapper {
@@ -58,6 +60,7 @@
             left: 0;
             z-index: 1000;
             transition: transform 0.3s ease;
+            box-sizing: border-box;
         }
 
         /* Header verborgen als scroll niet bovenaan */
@@ -96,49 +99,79 @@
             margin: 20px auto;
             background: #211812;
             border-radius: 5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         @media (max-width: 610px) {
+            body, html {
+                overflow-x: hidden; /* voorkom horizontaal scrollen */
+                padding: 0 10px; /* padding zijkanten */
+            }
+
             .extra-text {
-                width: 95%;
+                width: 100%; /* hele breedte minus padding */
                 margin: 20px auto;
                 margin-top: 80px;
                 padding: 10px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
 
             header {
                 flex-direction: column;
                 height: auto;
                 padding: 10px 0;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .logo {
                 margin-bottom: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                display: flex;
+                justify-content: center;
             }
 
             nav ul {
-                flex-direction: row; /* horizontaal houden */
+                flex-direction: row;
                 justify-content: center;
-                width: auto;
-                text-align: center;
-                gap: 10px;
+                width: 100%;
                 padding: 0;
                 margin: 0;
+                gap: 5px;
+                overflow-x: auto; /* horizontaal scrollbaar als nodig */
+                -webkit-overflow-scrolling: touch;
+                box-sizing: border-box;
+            }
+
+            nav ul::-webkit-scrollbar {
+                height: 5px;
+            }
+
+            nav ul::-webkit-scrollbar-thumb {
+                background-color: rgba(188, 155, 130, 0.7);
+                border-radius: 2.5px;
             }
 
             nav ul li {
                 display: inline-block;
                 padding: 0;
                 margin: 0;
+                white-space: nowrap; /* geen afbreking menu items */
             }
 
             nav ul li a {
                 display: inline-block;
                 padding: 5px 8px;
                 margin: 0;
-                font-size: 0.85rem;
+                font-size: 0.75rem; /* kleinere tekst */
                 background: transparent;
                 color: white;
+                white-space: nowrap;
             }
 
             .dropdown-menu {
@@ -168,6 +201,8 @@
         h1 {
             color: white;
             font-family: sans-serif;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         p {
@@ -175,6 +210,8 @@
             color: white;
             font-family: sans-serif;
             margin: 0 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .logo img {
