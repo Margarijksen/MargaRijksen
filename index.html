@@ -23,8 +23,6 @@
             background-repeat: no-repeat;
             background-position: center top;
             background-color: #211812;
-            overflow-x: hidden; /* voorkom horizontaal scrollen */
-            padding: 0 10px; /* padding zijkanten mobiel */
         }
 
         .wrapper {
@@ -60,7 +58,6 @@
             left: 0;
             z-index: 1000;
             transition: transform 0.3s ease;
-            box-sizing: border-box;
         }
 
         /* Header verborgen als scroll niet bovenaan */
@@ -99,79 +96,49 @@
             margin: 20px auto;
             background: #211812;
             border-radius: 5px;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
         }
 
         @media (max-width: 610px) {
-            body, html {
-                overflow-x: hidden; /* voorkom horizontaal scrollen */
-                padding: 0 10px; /* padding zijkanten */
-            }
-
             .extra-text {
-                width: 100%; /* hele breedte minus padding */
+                width: 95%;
                 margin: 20px auto;
                 margin-top: 80px;
                 padding: 10px;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
             }
 
             header {
                 flex-direction: column;
                 height: auto;
                 padding: 10px 0;
-                width: 100%;
-                box-sizing: border-box;
             }
 
             .logo {
                 margin-bottom: 10px;
-                padding-left: 10px;
-                padding-right: 10px;
-                box-sizing: border-box;
-                width: 100%;
-                display: flex;
-                justify-content: center;
             }
 
             nav ul {
-                flex-direction: row;
+                flex-direction: row; /* horizontaal houden */
                 justify-content: center;
-                width: 100%;
+                width: auto;
+                text-align: center;
+                gap: 10px;
                 padding: 0;
                 margin: 0;
-                gap: 5px;
-                overflow-x: auto; /* horizontaal scrollbaar als nodig */
-                -webkit-overflow-scrolling: touch;
-                box-sizing: border-box;
-            }
-
-            nav ul::-webkit-scrollbar {
-                height: 5px;
-            }
-
-            nav ul::-webkit-scrollbar-thumb {
-                background-color: rgba(188, 155, 130, 0.7);
-                border-radius: 2.5px;
             }
 
             nav ul li {
                 display: inline-block;
                 padding: 0;
                 margin: 0;
-                white-space: nowrap; /* geen afbreking menu items */
             }
 
             nav ul li a {
                 display: inline-block;
                 padding: 5px 8px;
                 margin: 0;
-                font-size: 0.75rem; /* kleinere tekst */
+                font-size: 0.85rem;
                 background: transparent;
                 color: white;
-                white-space: nowrap;
             }
 
             .dropdown-menu {
@@ -194,15 +161,13 @@
             color: white;
             font-family: sans-serif;
             font-weight: bold;
-            margin: 0 8px;
+            margin: 0 7px;
             text-transform: uppercase;
         }
 
         h1 {
             color: white;
             font-family: sans-serif;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
         }
 
         p {
@@ -210,8 +175,6 @@
             color: white;
             font-family: sans-serif;
             margin: 0 20px;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
         }
 
         .logo img {
@@ -338,8 +301,7 @@
 
     <div class="extra-text">
         <br /><h1>God loven en prijzen</h1><br />
-        <p>
-            God loven en prijzen, dat is waarom we muziek hebben gekregen. Dit is ook het doel dat Marga Rijksen heeft wanneer zij muziek
+        <p> God loven en prijzen, dat is waarom we muziek hebben gekregen. Dit is ook het doel dat Marga Rijksen heeft wanneer zij muziek
             maakt. Muziek is een krachtige manier om de lof van God te verkondigen, een uitnodiging voor iedereen om de Heere te loven met
             hart en ziel. Dit is ook de reden dat Marga Rijksen muziek maakt.<br /><br />
             
@@ -352,6 +314,7 @@
             waar haar vrolijke en energieke stijl opvalt. In alles wat ze doet, wil ze muziek maken die niet alleen mooi klinkt, 
             maar ook die mensen raakt, verbindt en uitnodigt tot verwondering, dankbaarheid en aanbidding.
         </p><br /><br /><br /><br />
+
 
         <div class="video-container">
             <iframe
